@@ -176,7 +176,7 @@ async function download2clipboard(isPaste = false, basePayload?: Payload) {
   await writeClipboard(json);
 
   if (globalStore.sync.enableDownloadTooltip) {
-    notify(t("sync.hints.download_success") + " " + basePayload?.value || "");
+    notify(t("sync.hints.download_success") + " " + (json?.value || ""));
   }
 
   if (isPaste) {
