@@ -6,6 +6,27 @@
   <img src="https://github.com/user-attachments/assets/4353b81b-5218-4ae4-8c3e-0e324e4e4f26" alt="EcoPaste" />
 </a>
 
+## 新增的`rust`代码由 `chatgpt` 生成, 因为不太会写`rust`代码, 导致有以下问题
+
+1. 需要手动在 `数据存储目录` 下新建文件夹 `sync`
+1. 图片有 hash 计算, 在同步时, 会转换成文件同步, 而不是图片
+
+## Android 使用
+
+使用[HTTP Request Shortcuts](https://github.com/Waboodoo/HTTP-Shortcuts)
+, 导入这个[配置文件](https://github.com/user-attachments/files/17870791/shortcuts-eco-paste.zip)，修改`变量`中的`BASE_URL`(不要以斜线分隔符`/`结尾)，`CLIENT_ID`(随机一点,比如UUID)，`ROOM_ID`(要和电脑端配置相同)，`HTTP Request Shortcuts`支持从下拉菜单、桌面组件、桌面图标、分享菜单中使用
+
+<details>
+<summary>导入配置文件后修改配置图示</summary>
+
+![](https://github.com/user-attachments/assets/0e9a18a8-736c-4b13-92b2-bffc8a24654b)
+![](https://github.com/user-attachments/assets/2f5f9566-05f5-47ce-9e72-4cd21b3dbfac)
+![](https://github.com/user-attachments/assets/5e60548a-f68e-4329-afa7-86bc8c07ad75)
+
+</details>
+
+## 以下为原 REAME
+
 <a href="https://github.com/EcoPasteHub/EcoPaste">
   <img src="https://socialify.git.ci/EcoPasteHub/EcoPaste/image?description=1&descriptionEditable=%E9%80%82%E7%94%A8%E4%BA%8E%20Windows%E3%80%81MacOS%20%E5%92%8C%20Linux(x11)%20%E7%9A%84%E5%BC%80%E6%BA%90%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E3%80%82&font=Source%20Code%20Pro&forks=1&issues=1&logo=https%3A%2F%2Fgithub.com%2FEcoPasteHub%2FEcoPaste%2Fblob%2Fmaster%2Fpublic%2Flogo.png%3Fraw%3Dtrue&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Auto" alt="EcoPaste" />
 </a>
