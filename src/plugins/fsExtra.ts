@@ -1,5 +1,6 @@
 import type { Metadata } from "@/types/plugin";
 import { invoke } from "@tauri-apps/api/core";
+import { readFile } from "@tauri-apps/plugin-fs";
 
 /**
  * 获取系统文件（夹）的信息
@@ -21,4 +22,14 @@ export const openPath = (path: string, finder = true) => {
 		path,
 		finder,
 	});
+};
+
+export const readFileBlob = async (path: string): Promise<Blob> => {
+	const u8a = await readFile(path);
+
+	const blob = new Blob([u8a], {
+		type: "application/octet-stream",
+	});
+
+	return blob;
 };

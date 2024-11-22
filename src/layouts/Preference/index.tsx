@@ -7,6 +7,7 @@ import ClipboardSettings from "@/pages/Clipboard/Settings";
 import General from "@/pages/General";
 import History from "@/pages/History";
 import Shortcut from "@/pages/Shortcut";
+import SyncSettings from "@/pages/Sync/Settings";
 import { emit } from "@tauri-apps/api/event";
 import { Flex, Tabs, type TabsProps } from "antd";
 import clsx from "clsx";
@@ -61,6 +62,12 @@ const PreferenceLayout = () => {
 			label: t("preference.menu.title.shortcut"),
 			icon: "i-lucide:keyboard",
 			children: <Shortcut />,
+		},
+		{
+			key: "sync",
+			label: t("sync.title"),
+			icon: "i-lucide:cloud-cog",
+			children: <SyncSettings />,
 		},
 		{
 			key: "backup",

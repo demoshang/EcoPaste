@@ -29,6 +29,23 @@ export const globalStore = proxy<GlobalStore>({
 		},
 	},
 
+	sync: {
+		enableAutoUpload: false,
+		autoUploadType: ["text", "rtf", "html"],
+		autoUploadSize: 0,
+		enableAutoDownload: false,
+		audoDownloadType: ["text", "rtf", "html"],
+		autoDownloadSize: 0,
+		enableUploadTooltip: true,
+		enableDownloadTooltip: true,
+		upload: "Command+Shift+C",
+		download: "",
+		downloadAndPaste: "Command+Shift+V",
+		serverAddress: "",
+		roomId: "",
+		secret: "",
+	},
+
 	env: {},
 });
 

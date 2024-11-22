@@ -311,7 +311,7 @@ export const onClipboardUpdate = (
  * 将数据写入剪切板
  * @param data 数据
  */
-export const writeClipboard = (data?: HistoryTablePayload) => {
+export const writeClipboard = (data?: Pick<HistoryTablePayload, 'type' | 'value' | 'search'>) => {
 	if (!data) return;
 
 	const { type, value, search } = data;

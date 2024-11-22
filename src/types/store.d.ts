@@ -1,9 +1,11 @@
 import type { OsType } from "@tauri-apps/plugin-os";
+import type { ClipboardPayload } from "@/types/plugin";
 
 export type Theme = "auto" | "light" | "dark";
 
 export type Language = (typeof LANGUAGE)[keyof typeof LANGUAGE];
 
+export type ClipboardType = NonNullable<ClipboardPayload['type']>
 export interface Store {
 	globalStore: GlobalStore;
 	clipboardStore: ClipboardStore;
@@ -39,6 +41,25 @@ export interface GlobalStore {
 			value: string;
 		};
 		pastePlain?: string;
+	};
+
+	// 同步配置
+	sync: {
+		enableAutoUpload: boolean;
+		autoUploadType: ClipboardType[];
+		autoUploadSize: number;
+		enableAutoDownload: boolean;
+		audoDownloadType: ClipboardType[];
+		autoDownloadSize: number;
+		enableUploadTooltip: boolean;
+		enableDownloadTooltip: boolean;
+		upload: string;
+		download: string;
+		downloadAndPaste: string;
+
+		serverAddress: string;
+		roomId: string;
+		secret: string;
 	};
 
 	// 只在当前系统环境使用

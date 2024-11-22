@@ -30,6 +30,13 @@ export const getSaveDataDir = () => {
 };
 
 /**
+ * 获取同步文件的目录
+ */
+export const getSaveSyncDir = () => {
+	return joinPath(getSaveDataDir(), "sync", "");
+};
+
+/**
  * 获取存储图片的目录
  */
 export const getSaveImageDir = () => {

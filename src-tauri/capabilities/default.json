@@ -30,6 +30,10 @@
 		"fs:allow-create",
 		"fs:allow-write",
 		"fs:allow-exists",
+        "fs:write-all",
+        "fs:read-all",
+        "notification:allow-is-permission-granted",
+        "notification:default",
 		{
 			"identifier": "fs:scope",
 			"allow": ["**/*"]

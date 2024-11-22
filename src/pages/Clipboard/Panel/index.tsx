@@ -1,6 +1,7 @@
 import type { AudioRef } from "@/components/Audio";
 import Audio from "@/components/Audio";
 import { getWebShortcuts } from "@/components/ProShortcut/keys";
+import SyncPanel from "@/pages/Sync/Panel";
 import type { HistoryTablePayload, TablePayload } from "@/types/database";
 import type { Store } from "@/types/store";
 import type { EventEmitter } from "ahooks/lib/useEventEmitter";
@@ -175,6 +176,7 @@ const ClipboardPanel = () => {
 
 	return (
 		<>
+			<SyncPanel />
 			<Audio hiddenIcon ref={audioRef} />
 
 			<ClipboardPanelContext.Provider

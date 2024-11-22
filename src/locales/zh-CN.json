@@ -313,5 +313,42 @@
 				"input_note": "请输入备注"
 			}
 		}
+	},
+	"sync": {
+		"title": "同步设置",
+		"label": {
+			"enable_auto_upload": "自动上传",
+			"auto_upload_size": "自动上传大小限制",
+			"enable_auto_download": "自动下载",
+			"auto_download_size": "自动下载大小限制",
+
+			"enable_upload_tooltip": "上传结果提醒",
+			"enable_download_tooltip": "下载结果提醒",
+
+			"upload": "剪切板内容上传到服务器",
+			"download": "下载服务器内容到剪切板",
+			"download_and_paste": "下载服务器内容到剪切板并粘贴",
+			"server_address": "服务器地址",
+			"client_name": "客户端别名",
+			"client_name_generate": "生成",
+			"client_name_copy": "复制",
+			"room_id": "用户组",
+			"secret": "加密密码"
+		},
+		"hints": {
+			"enable_auto_upload": "开启后，剪切板变化自动上传服务器",
+			"auto_upload_size": "输入0表示不限制，仅针对图片和文件，单位M，超过不自动上传",
+			"enable_auto_download": "开启后，服务器变化自动下载到剪切板",
+			"auto_download_size": "输入0表示不限制，仅针对图片和文件，单位M，超过不自动下载",
+			"upload_success": "上传成功",
+			"download_success": "下载成功",
+			"server_failed": "同步服务器故障",
+			"server_address": "同步服务器地址，结尾不需要 / ",
+			"room_id": "同一个用户组之间才能同步，不同的客户端之间需要配置相同",
+			"secret": "暂未实现，加密传输剪切板内容，不同的客户端之间需要配置相同",
+			"copy_success": "复制成功"
+		}
+		
 	}
+	
 }
