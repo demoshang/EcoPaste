@@ -1,15 +1,15 @@
 name: Build Beta Package
 
 on:
-  schedule:
-    - cron: "22 22 * * *"
+  # schedule:
+  #   - cron: "22 22 * * *"
   workflow_dispatch:
     inputs:
       updater:
         description: "Enable updater?"
         required: true
         type: boolean
-        default: true
+        default: false
       platform_windows:
         description: "windows"
         required: true

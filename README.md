@@ -1,3 +1,11 @@
+<h1 align="center">
+  基于原版添加 <a href="https://github.com/EcoPasteHub/EcoPaste/compare/master...demoshang:EcoPaste:dev" target="_blank">剪切板同步功能</a>, 需要<a href="https://github.com/demoshang/eco-paste-sync-server" target="_blank">自建服务器端</a>
+</h1>
+
+<a href="https://github.com/demoshang/EcoPaste">
+  <img src="https://github.com/user-attachments/assets/4353b81b-5218-4ae4-8c3e-0e324e4e4f26" alt="EcoPaste" />
+</a>
+
 <a href="https://github.com/EcoPasteHub/EcoPaste">
   <img src="https://socialify.git.ci/EcoPasteHub/EcoPaste/image?description=1&descriptionEditable=%E9%80%82%E7%94%A8%E4%BA%8E%20Windows%E3%80%81MacOS%20%E5%92%8C%20Linux(x11)%20%E7%9A%84%E5%BC%80%E6%BA%90%E5%89%AA%E8%B4%B4%E6%9D%BF%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E3%80%82&font=Source%20Code%20Pro&forks=1&issues=1&logo=https%3A%2F%2Fgithub.com%2FEcoPasteHub%2FEcoPaste%2Fblob%2Fmaster%2Fpublic%2Flogo.png%3Fraw%3Dtrue&name=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Auto" alt="EcoPaste" />
 </a>
@@ -10,7 +18,7 @@
   </div>
 
   <br/>
-    
+
   <a href="https://github.com/EcoPasteHub/EcoPaste/releases">
     <img
       alt="Windows"
@@ -24,9 +32,9 @@
     />
   </a >
   <a href="https://github.com/EcoPasteHub/EcoPaste/releases">
-    <img 
+    <img
       alt="Linux"
-      src="https://img.shields.io/badge/-Linux-yellow?style=flat-square&logo=linux&logoColor=white" 
+      src="https://img.shields.io/badge/-Linux-yellow?style=flat-square&logo=linux&logoColor=white"
     />
   </a>
 
