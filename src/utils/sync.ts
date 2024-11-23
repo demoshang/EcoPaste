@@ -1,3 +1,4 @@
+import { ensureDir } from "@/plugins/fsExtra";
 import type { ClipboardPayload } from "@/types/plugin";
 import { writeFile } from "@tauri-apps/plugin-fs";
 import { t } from "i18next";
@@ -88,7 +89,10 @@ async function upload(payload: ClipboardPayload, maxSize = 0) {
 
     // 大小超过限制
     if (size >= maxSize * 1024 * 1024) {
-      console.log("=======max size over===========", { size: size / 1024 / 1024, maxSize });
+      console.log("=======max size over===========", {
+        size: size / 1024 / 1024,
+        maxSize,
+      });
       return;
     }
   }
@@ -123,6 +127,8 @@ async function downloadFile(filename: string, index: number) {
   const blob = await res.blob();
   const arrayBuffer = await blob.arrayBuffer();
   const uint8Array = new Uint8Array(arrayBuffer);
+
+  await ensureDir(getSaveSyncDir());
 
   const path = `${getSaveSyncDir()}${nanoid()}-${filename}`;
   await writeFile(path, uint8Array);
@@ -208,9 +214,6 @@ function getDownloadEventSource() {
 export type { Payload };
 export {
   download,
-  download2clipboard,
-  latestSync,
-  getDownloadEventSource,
-  syncDownloadListen,
-  upload,
+  download2clipboard, getDownloadEventSource, latestSync, syncDownloadListen,
+  upload
 };
