@@ -37,6 +37,10 @@ export const useSSE = (handler: (msg: Payload) => void) => {
 		}
 
 		const fn = (me: MessageEvent<any>) => {
+			if (me.data === "hello") {
+				return;
+			}
+
 			const payload: Payload = JSON.parse(me.data);
 
 			if (!!sync.autoDownloadSize && payload.size >= sync.autoDownloadSize) {
