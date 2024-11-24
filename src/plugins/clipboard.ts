@@ -4,6 +4,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { exists } from "@tauri-apps/plugin-fs";
 import { isEmpty, isEqual } from "lodash-es";
+import { metadata } from "tauri-plugin-fs-pro-api";
 
 /**
  * 开启监听
@@ -311,7 +312,9 @@ export const onClipboardUpdate = (
  * 将数据写入剪切板
  * @param data 数据
  */
-export const writeClipboard = (data?: Pick<HistoryTablePayload, 'type' | 'value' | 'search'>) => {
+export const writeClipboard = (
+	data?: Pick<HistoryTablePayload, "type" | "value" | "search">,
+) => {
 	if (!data) return;
 
 	const { type, value, search } = data;
