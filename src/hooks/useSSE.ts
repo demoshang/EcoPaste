@@ -1,66 +1,60 @@
-import { ClipboardPayload } from "@/types/plugin";
+import type { ClipboardPayload } from "@/types/plugin";
 import { useSnapshot } from "valtio";
 
 type Payload = Pick<ClipboardPayload, "type" | "value" | "search"> & {
-  size: number;
+	size: number;
 };
 
 export const useSSE = (handler: (msg: Payload) => void) => {
-  const [es, setEs] = useState<EventSource | undefined>();
-  const { sync } = useSnapshot(globalStore);
+	const [es, setEs] = useState<EventSource | undefined>();
+	const { sync } = useSnapshot(globalStore);
 
-  const destroy = () => {
-    if (!es) {
-      return;
-    }
+	const destroy = () => {
+		if (!es) {
+			return;
+		}
 
-    es.close();
-  };
+		es.close();
+	};
 
-  useEffect(() => {
-    if (!sync.enableAutoDownload) {
-      return destroy();
-    }
+	useEffect(() => {
+		if (!sync.enableAutoDownload) {
+			return destroy();
+		}
 
-    setEs(getDownloadEventSource());
+		setEs(getDownloadEventSource());
 
-    return () => {
-      if (es) {
-        es.close();
-      }
-    };
-  }, [sync.enableAutoDownload]);
+		return () => {
+			if (es) {
+				es.close();
+			}
+		};
+	}, [sync.enableAutoDownload]);
 
-  useEffect(() => {
-    if (!es) {
-      return;
-    }
+	useEffect(() => {
+		if (!es) {
+			return;
+		}
 
-    const fn = (me: MessageEvent<any>) => {
-      const payload: Payload = JSON.parse(me.data);
+		const fn = (me: MessageEvent<any>) => {
+			const payload: Payload = JSON.parse(me.data);
 
-      if (!!sync.autoDownloadSize && payload.size >= sync.autoDownloadSize) {
-        console.log("===========download size over=======", {
-          maxSize: sync.autoDownloadSize,
-          size: payload.size,
-        });
-        return;
-      }
+			if (!!sync.autoDownloadSize && payload.size >= sync.autoDownloadSize) {
+				return;
+			}
 
-      handler(payload);
-    };
-    es.addEventListener("message", fn);
+			handler(payload);
+		};
+		es.addEventListener("message", fn);
 
-    const errorLog = () => {
-      console.log("==================", "close");
-    };
-    es.addEventListener("error", errorLog);
+		const errorLog = () => {};
+		es.addEventListener("error", errorLog);
 
-    return () => {
-      es.removeEventListener("message", fn);
-      es.removeEventListener("error", errorLog);
-    };
-  }, [es, handler, sync.autoDownloadSize]);
+		return () => {
+			es.removeEventListener("message", fn);
+			es.removeEventListener("error", errorLog);
+		};
+	}, [es, handler, sync.autoDownloadSize]);
 
-  return es;
+	return es;
 };
