@@ -1,8 +1,8 @@
 name: Build Beta Package
 
 on:
-  # schedule:
-  #   - cron: "22 22 * * *"
+  schedule:
+    - cron: "22 22 * * *"
   workflow_dispatch:
     inputs:
       updater:
@@ -19,17 +19,17 @@ on:
         description: "linux"
         required: true
         type: boolean
-        default: false
+        default: true
       platform_macos:
         description: "macos"
         required: true
         type: boolean
-        default: false
+        default: true
       retain_days:
         description: "Artifacts retention time (days)"
         required: true
         type: string
-        default: "1"
+        default: "3"
 
 jobs:
   preprocess:
