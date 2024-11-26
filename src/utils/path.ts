@@ -1,3 +1,4 @@
+import { getName } from "@tauri-apps/api/app";
 import { appDataDir, sep } from "@tauri-apps/api/path";
 import { last } from "lodash-es";
 
@@ -19,14 +20,19 @@ export const joinPath = (...paths: string[]) => {
 
 /**
  * 获取存储数据的目录
- * @param endWithSep 结尾是否包含分隔符
  */
-export const getSaveDataDir = () => {
-	let { saveDataDir = "" } = globalStore.env;
+export const getSaveDataPath = () => {
+	return joinPath(globalStore.env.saveDataDir!);
+};
 
-	saveDataDir = joinPath(saveDataDir, "");
+/**
+ * 获取数据库文件存储路径
+ */
+export const getSaveDatabasePath = async () => {
+	const appName = await getName();
+	const extname = isDev() ? "dev.db" : "db";
 
-	return saveDataDir.slice(0, -1);
+	return joinPath(getSaveDataPath(), `${appName}.${extname}`);
 };
 
 /**
@@ -37,28 +43,29 @@ export const getSaveSyncDir = () => {
 };
 
 /**
- * 获取存储图片的目录
+ * 获取存储图片的路径
  */
-export const getSaveImageDir = () => {
-	return joinPath(getSaveDataDir(), "images", "");
+export const getSaveImagePath = () => {
+	return joinPath(getSaveDataPath(), "images");
 };
 
 /**
- * 获取图片内容的存储路径
+ * 解析完整的存储图片路径
  * @param file 文件名
  */
-export const getSaveImagePath = (file: string) => {
-	if (file.startsWith(getSaveImageDir())) return file;
+export const resolveImagePath = (file: string) => {
+	if (file.startsWith(getSaveImagePath())) return file;
 
-	return joinPath(getSaveImageDir(), file);
+	return joinPath(getSaveImagePath(), file);
 };
 
 /**
  * 存储数据的目录名
  */
 export const getSaveDataDirName = () => {
-	return last(getSaveDataDir().split(sep())) as string;
+	return last(getSaveDataPath().split(sep())) as string;
 };
+
 /**
  * 存储配置项的路径
  * @param backup 是否是备份数据
@@ -67,7 +74,7 @@ export const getSaveStorePath = async (backup = false) => {
 	const extname = isDev() ? "dev.json" : "json";
 
 	if (backup) {
-		return joinPath(getSaveDataDir(), `.store-backup.${extname}`);
+		return joinPath(getSaveDataPath(), `.store-backup.${extname}`);
 	}
 
 	return joinPath(await appDataDir(), `.store.${extname}`);
@@ -76,7 +83,7 @@ export const getSaveStorePath = async (backup = false) => {
 /**
  * 存储窗口位置的路径
  */
-export const saveWindowStatePath = async () => {
+export const getSaveWindowStatePath = async () => {
 	const extname = isDev() ? "dev.json" : "json";
 
 	return joinPath(await appDataDir(), `.window-state.${extname}`);
