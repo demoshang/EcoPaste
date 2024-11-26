@@ -51,7 +51,13 @@ export const useSSE = (handler: (msg: Payload) => void) => {
 		};
 		es.addEventListener("message", fn);
 
-		const errorLog = () => {};
+		const errorLog = () => {
+			if (es.readyState === es.CLOSED) {
+				setTimeout(() => {
+					setEs(getDownloadEventSource());
+				}, 10 * 1000);
+			}
+		};
 		es.addEventListener("error", errorLog);
 
 		return () => {
