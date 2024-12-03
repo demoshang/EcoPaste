@@ -39,7 +39,7 @@ export const getSaveDatabasePath = async () => {
  * 获取同步文件的目录
  */
 export const getSaveSyncDir = () => {
-	return joinPath(getSaveDataDir(), "sync", "");
+	return joinPath(getSaveDataPath(), "sync", "");
 };
 
 /**
