@@ -1,11 +1,11 @@
-import type { OsType } from "@tauri-apps/plugin-os";
 import type { ClipboardPayload } from "@/types/plugin";
+import type { OsType } from "@tauri-apps/plugin-os";
 
 export type Theme = "auto" | "light" | "dark";
 
 export type Language = (typeof LANGUAGE)[keyof typeof LANGUAGE];
 
-export type ClipboardType = NonNullable<ClipboardPayload['type']>
+export type ClipboardType = NonNullable<ClipboardPayload["type"]>;
 export interface Store {
 	globalStore: GlobalStore;
 	clipboardStore: ClipboardStore;
@@ -73,6 +73,13 @@ export interface GlobalStore {
 
 export type ClickFeedback = "none" | "copy" | "paste";
 
+export type OperationButton =
+	| "copy"
+	| "pastePlain"
+	| "note"
+	| "star"
+	| "delete";
+
 export interface ClipboardStore {
 	// 窗口设置
 	window: {
@@ -100,6 +107,7 @@ export interface ClipboardStore {
 		ocr: boolean;
 		copyPlain: boolean;
 		pastePlain: boolean;
+		operationButtons: OperationButton[];
 	};
 
 	// 历史记录
