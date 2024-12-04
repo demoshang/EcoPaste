@@ -4,6 +4,7 @@ import { writeFile } from "@tauri-apps/plugin-fs";
 import { t } from "i18next";
 import { pick } from "lodash-es";
 import { nanoid } from "nanoid";
+import { decrypt, encrypt } from "./crypto";
 import { getSaveSyncDir } from "./path";
 
 const clientId = nanoid();
@@ -44,8 +45,16 @@ async function buildFormData(payload: Payload) {
 
 	await Promise.all(
 		Object.entries(payload).map(async ([k, v]) => {
-			formData.append(k, v);
+			// value 加密
+			if (k === "value") {
+				const str = await encrypt(v, globalStore.sync.secret);
+				formData.append(k, str);
+			} else {
+				// 其他字段直接传输
+				formData.append(k, v);
+			}
 
+			// 类型是图片或文件的需要特殊处理下
 			if (k !== "type" && v !== undefined) {
 				return;
 			}
@@ -55,7 +64,8 @@ async function buildFormData(payload: Payload) {
 				const path = resolveImagePath(payload.value);
 				const blob = await readFileBlob(path);
 
-				formData.append("blobs", blob);
+				const encryptedBlob = await encrypt(blob, globalStore.sync.secret);
+				formData.append("blobs", encryptedBlob);
 			}
 			// 文件
 			else if (v === "files") {
@@ -63,7 +73,8 @@ async function buildFormData(payload: Payload) {
 
 				for (const path of list) {
 					const blob = await readFileBlob(path);
-					formData.append("blobs", blob);
+					const encryptedBlob = await encrypt(blob, globalStore.sync.secret);
+					formData.append("blobs", encryptedBlob);
 				}
 			}
 		}),
@@ -118,7 +129,8 @@ async function downloadFile(filename: string, index: number) {
 	});
 
 	const blob = await res.blob();
-	const arrayBuffer = await blob.arrayBuffer();
+	const decodedBlob = await decrypt(blob, globalStore.sync.secret);
+	const arrayBuffer = await decodedBlob.arrayBuffer();
 	const uint8Array = new Uint8Array(arrayBuffer);
 
 	await ensureDir(getSaveSyncDir());
@@ -143,6 +155,8 @@ async function download(basePayload?: Payload) {
 	} else {
 		json = basePayload;
 	}
+
+	json.value = await decrypt(json.value, globalStore.sync.secret);
 
 	if (json.type === "image") {
 		const filename = json.value.replace(getSaveImageDir(), "");

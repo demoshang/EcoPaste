@@ -64,14 +64,33 @@ const SyncSettings = () => {
 				title={t("sync.label.secret")}
 				description={t("sync.hints.secret")}
 			>
-				<Input
-					type="text"
-					className="w-260"
-					value={sync.secret}
-					onChange={(e) => {
-						globalStore.sync.secret = e.target.value;
-					}}
-				/>
+				<Space.Compact style={{ width: "100%" }}>
+					<Input
+						type="text"
+						className="w-136"
+						value={sync.secret}
+						onChange={(e) => {
+							globalStore.sync.secret = e.target.value;
+						}}
+					/>
+					<Button
+						type="primary"
+						onClick={() => {
+							globalStore.sync.secret = nanoid();
+						}}
+					>
+						{t("sync.label.client_name_generate")}
+					</Button>
+					<Button
+						type="default"
+						onClick={() => {
+							writeText(globalStore.sync.secret);
+							message.success(t("sync.hints.copy_success"));
+						}}
+					>
+						{t("sync.label.client_name_copy")}
+					</Button>
+				</Space.Compact>
 			</ProListItem>
 
 			<ProShortcut
