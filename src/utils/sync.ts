@@ -52,7 +52,7 @@ async function buildFormData(payload: Payload) {
 
 			// 图片
 			if (v === "image") {
-				const path = getSaveImagePath(payload.value);
+				const path = resolveImagePath(payload.value);
 				const blob = await readFileBlob(path);
 
 				formData.append("blobs", blob);
