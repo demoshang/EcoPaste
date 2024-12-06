@@ -145,7 +145,7 @@ async function download(basePayload?: Payload) {
 	}
 
 	if (json.type === "image") {
-		const filename = json.value.replace(getSaveImageDir(), "");
+		const filename = json.value.replace(joinPath(getSaveImagePath(), ""), "");
 		const path = await downloadFile(filename, 0);
 		// 原生写入剪切板会计算hash, 导致保存2份图片,
 		// 同时也无法比较从服务器同步下来的图片和最后一次剪切板图片是否相同
