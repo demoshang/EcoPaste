@@ -89,9 +89,11 @@ HomeBrew：[クリックして確認する](https://ecopaste.cn/guide/install#%E
 - 🤝 完善なドキュメントとコミュニティ機能をサポート、開発者と共に成長を目指す。
 - 🧩 継続的な最適化し、もっと驚きの機能があなたの発見を待っている。
 
-## よくある質問
+## 問題のフィードバック
 
-お問い合わせの前に[よくある質問](https://ecopaste.cn/problem/macos/damage)または既存の [Issues](https://github.com/EcoPasteHub/EcoPaste/issues) をご覧ください。なお不明な点がある場合、新しい Issue を提出するかまたは[コミュニティ](#コミュニティ交流)を通じてお問い合わせください。
+1. 🔍 まず、[よくある質問](https://ecopaste.cn/problem/macos/damage)を確認するか、既存の [issues](https://github.com/EcoPasteHub/EcoPaste/issues) をご覧ください。
+
+2. ❓ 問題が解決しない場合は、新しい [issue](https://github.com/EcoPasteHub/EcoPaste/issues/new/choose) を提出し、詳細な説明を添えてください。迅速な解決に役立てます。
 
 ## 履歴スター
 
@@ -105,9 +107,42 @@ HomeBrew：[クリックして確認する](https://ecopaste.cn/guide/install#%E
 
 ## コミュニティ交流
 
-|                                 WeChat Group                                  |                    QQ Group                     |
-| :---------------------------------------------------------------------------: | :---------------------------------------------: |
-| <img width="50%" src="https://picture-bed.ayangweb.cn/EcoPaste/wechat.png" /> | <img width="50%" src="./static/qq-group.png" /> |
+⚠️ ご注意: グループチャットは日常的な議論と経験の共有に限ります。問題のフィードバックや新しい機能のリクエストが必要な場合は、[問題のフィードバック](#問題のフィードバック)をご確認ください。
+
+<table>
+  <thead>
+    <tr>
+      <th width="33.3%">WeChat Group</th>
+      <th width="33.3%">QQ Group</th>
+      <th width="33.3%">Telegram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/wechat-group-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/wechat-group-light.png" />
+          <img src="https://ecopaste.cn/community/wechat-group-light.png" />
+        </picture>
+      </td>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/qq-group-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/qq-group-light.png" />
+          <img src="https://ecopaste.cn/community/qq-group-light.png" />
+        </picture>
+      </td>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/telegram-chat-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/telegram-chat-light.png" />
+          <img src="https://ecopaste.cn/community/telegram-chat-light.png" />
+        </picture>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## 貢献者
 
@@ -123,6 +158,6 @@ EcoPaste へ貴重なご貢献をいただいた皆様に感謝します！も�
 
 ご寄付の場合には必ずメッセージしていただき、[寄附者名簿](https://ecopaste.cn/sponsor/list)に記載させていただきます。ご支援とご協力を賜り御礼申し上げます。
 
-|               WeChat Pay               |              Alipay              |
-| :------------------------------------: | :------------------------------: |
-| ![wehcat-pay](./static/wechat-pay.png) | ![ali-pay](./static/ali-pay.png) |
+|                        WeChat Pay                         |                       Alipay                        |
+| :-------------------------------------------------------: | :-------------------------------------------------: |
+| ![wehcat-pay](https://ecopaste.cn/sponsor/wechat-pay.png) | ![ali-pay](https://ecopaste.cn/sponsor/ali-pay.png) |

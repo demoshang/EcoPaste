@@ -310,7 +310,7 @@ export const onClipboardUpdate = (fn: (payload: ClipboardPayload) => void) => {
 };
 
 /**
- * 将数据写入剪切板
+ * 将数据写入剪贴板
  * @param data 数据
  */
 export const writeClipboard = (
@@ -335,7 +335,7 @@ export const writeClipboard = (
 };
 
 /**
- * 粘贴剪切板数据
+ * 粘贴剪贴板数据
  * @param data 数据
  * @param plain 是否纯文本粘贴
  */
@@ -363,26 +363,28 @@ export const pasteClipboard = async (
 };
 
 /**
- * 获取剪切板数据的子类型
+ * 获取剪贴板数据的子类型
  * @param data 剪贴板数据
  */
 export const getClipboardSubtype = async (data: ClipboardPayload) => {
 	try {
 		const { value } = data;
 
-		let subtype: ClipboardPayload["subtype"];
-
 		if (isURL(value)) {
-			subtype = "url";
-		} else if (isEmail(value)) {
-			subtype = "email";
-		} else if (isColor(value)) {
-			subtype = "color";
-		} else if (await exists(value)) {
-			subtype = "path";
+			return "url";
 		}
 
-		return subtype;
+		if (isEmail(value)) {
+			return "email";
+		}
+
+		if (isColor(value)) {
+			return "color";
+		}
+
+		if (await exists(value)) {
+			return "path";
+		}
 	} catch {
 		return;
 	}

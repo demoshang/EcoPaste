@@ -126,6 +126,41 @@ const ClipboardSettings = () => {
 				/>
 
 				<OperationButton />
+
+				<ProSwitch
+					title={t("preference.clipboard.content_settings.label.auto_favorite")}
+					description={t(
+						"preference.clipboard.content_settings.hints.auto_favorite",
+					)}
+					value={content.autoFavorite}
+					onChange={(value) => {
+						clipboardStore.content.autoFavorite = value;
+					}}
+				/>
+
+				<ProSwitch
+					title={t(
+						"preference.clipboard.content_settings.label.delete_confirm",
+					)}
+					description={t(
+						"preference.clipboard.content_settings.hints.delete_confirm",
+					)}
+					value={content.deleteConfirm}
+					onChange={(value) => {
+						clipboardStore.content.deleteConfirm = value;
+					}}
+				/>
+
+				<ProSwitch
+					title={t("preference.clipboard.content_settings.label.auto_sort")}
+					description={t(
+						"preference.clipboard.content_settings.hints.auto_sort",
+					)}
+					value={content.autoSort}
+					onChange={(value) => {
+						clipboardStore.content.autoSort = value;
+					}}
+				/>
 			</ProList>
 		</>
 	);

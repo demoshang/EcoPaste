@@ -28,14 +28,10 @@ const PreferenceLayout = () => {
 	});
 
 	// 监听全局配置项变化
-	useSubscribe(globalStore, () => {
-		handleStoreChanged();
-	});
+	useSubscribe(globalStore, () => handleStoreChanged());
 
 	// 监听剪贴板配置项变化
-	useSubscribe(clipboardStore, () => {
-		handleStoreChanged();
-	});
+	useSubscribe(clipboardStore, () => handleStoreChanged());
 
 	// 监听快捷键切换窗口显隐
 	useRegister(toggleWindowVisible, [shortcut.preference]);
@@ -93,7 +89,9 @@ const PreferenceLayout = () => {
 				data-tauri-drag-region
 				vertical
 				gap="small"
-				className={clsx("h-full w-200 p-12", [isMac() ? "pt-32" : "bg-1"])}
+				className={clsx("h-full w-200 p-12", [
+					isMac() ? "pt-32" : "bg-color-1",
+				])}
 				onClick={(event) => event.stopPropagation()}
 			>
 				{tabItems.map((item) => {
@@ -105,7 +103,7 @@ const PreferenceLayout = () => {
 							align="center"
 							gap="small"
 							className={clsx(
-								"color-2 cursor-pointer rounded-8 p-12 p-r-0 transition hover:bg-4",
+								"cursor-pointer rounded-8 p-12 p-r-0 text-color-2 transition hover:bg-color-4",
 								{
 									"bg-primary! text-white!": activeKey === key,
 								},

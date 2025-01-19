@@ -33,7 +33,7 @@
 				}
 			},
 			"search_box_settings": {
-				"title": "Search Box Settings",
+				"title": "Search Settings",
 				"label": {
 					"default_focus": "Default Focus",
 					"auto_clear": "Auto Clear",
@@ -47,20 +47,39 @@
 				}
 			},
 			"content_settings": {
-				"title": "Clipboard Content",
+				"title": "Content Settings",
+				"button": {
+					"custom_operation_button": "Custom"
+				},
 				"label": {
 					"auto_paste": "Auto Paste",
 					"auto_paste_single": "Single Click",
 					"auto_paste_double": "Double Click",
 					"image_ocr": "Image OCR",
 					"copy_as_plain": "Copy as Plain Text",
-					"paste_as_plain": "Paste as Plain Text"
+					"paste_as_plain": "Paste as Plain Text",
+					"operation_button": "Action Button",
+					"custom_operation_button_title": "Custom Action Button",
+					"operation_button_option": {
+						"copy": "Copy",
+						"paste_plain": "Paste as Plain Text",
+						"notes": "Notes",
+						"favorite": "Favorite",
+						"delete": "Delete"
+					},
+					"auto_favorite": "Auto Favorite",
+					"delete_confirm": "Delete Confirmation",
+					"auto_sort": "Auto Sort"
 				},
 				"hints": {
 					"auto_paste": "Quickly paste content to the input field when using the left mouse button",
 					"image_ocr": "Note: Please be sure to download the",
 					"copy_as_plain": "Rich text and HTML formats retain only plain text content when copied",
-					"paste_as_plain": "Rich text and HTML formatting retains only plain text content when pasting"
+					"paste_as_plain": "Rich text and HTML formatting retains only plain text content when pasting",
+					"operation_button": "Customize icon buttons to operate on clipboard content",
+					"auto_favorite": "Auto-favorite after adding or editing a note",
+					"delete_confirm": "Pop-up confirmation dialog when deleting clipboard contents",
+					"auto_sort": "Alignment to the top when copying existing content"
 				}
 			}
 		},
@@ -74,12 +93,9 @@
 				},
 				"label": {
 					"duration": "Retention Duration",
-					"duration_unit": {
-						"day": "Day",
-						"week": "Week",
-						"month": "Month",
-						"year": "Year"
-					},
+					"duration_unit": "Day",
+					"max_count": "Max Count",
+					"max_count_unit": "Items",
 					"delete_title": "Delete History",
 					"time_range": "Time Range",
 					"time_range_opt": {
@@ -93,7 +109,8 @@
 					"include_favorite": "Delete Favorites"
 				},
 				"hints": {
-					"duration": "Enter 0 to keep permanently, favorites will be retained when auto-deleting",
+					"duration": "Enter 0 for permanent retention, only counting and deleting uncollected entries",
+					"max_count": "Enter 0 for permanent retention, only counting and deleting uncollected entries",
 					"delete_success": "Successfully Deleted"
 				}
 			}
@@ -207,7 +224,8 @@
 					"version": "Version: ",
 					"software_info": "Software Information",
 					"open_source_address": "Open Source Address",
-					"community": "Community"
+					"community": "Community",
+					"sponsor": "Sponsor"
 				},
 				"button": {
 					"check_update": "Check Update",
@@ -267,7 +285,8 @@
 			"n_chars": "{{0}} Character(s)"
 		},
 		"hints": {
-			"search_placeholder": "Search..."
+			"search_placeholder": "Search...",
+			"delete_modal_content": "Are you sure you want to delete this?"
 		}
 	},
 	"component": {

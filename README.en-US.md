@@ -89,9 +89,11 @@ Installation Guide: [Click here](https://ecopaste.cn/guide/install#linux)
 - 🤝 Comprehensive documentation and community support to explore and grow with developers.
 - 🧩 Continuously optimized with more exciting features waiting to be discovered.
 
-## FAQ
+## Feedback
 
-If you encounter any issues, please refer to the [FAQ](https://ecopaste.cn/problem/macos/damage) or browse existing [Issues](https://github.com/EcoPasteHub/EcoPaste/issues). If your problem persists, feel free to submit a new issue or contact us via [Community](#Community).
+1. 🔍 First, check out the [FAQ](https://ecopaste.cn/problem/macos/damage) or browse through the existing [issues](https://github.com/EcoPasteHub/EcoPaste/issues)。
+
+2. ❓ If your issue remains unresolved, please submit a new [issue](https://github.com/EcoPasteHub/EcoPaste/issues/new/choose) with a detailed description to help us quickly identify and address the problem.
 
 ## Star History
 
@@ -105,9 +107,42 @@ If you encounter any issues, please refer to the [FAQ](https://ecopaste.cn/probl
 
 ## Community
 
-|                                 WeChat Group                                  |                    QQ Group                     |
-| :---------------------------------------------------------------------------: | :---------------------------------------------: |
-| <img width="50%" src="https://picture-bed.ayangweb.cn/EcoPaste/wechat.png" /> | <img width="50%" src="./static/qq-group.png" /> |
+⚠️ Friendly Reminder: Group chats are for casual discussions and experience sharing only. For issue reporting or submitting new feature requests, please refer to [Feedback](#Feedback).
+
+<table>
+  <thead>
+    <tr>
+      <th width="33.3%">WeChat Group</th>
+      <th width="33.3%">QQ Group</th>
+      <th width="33.3%">Telegram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/wechat-group-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/wechat-group-light.png" />
+          <img src="https://ecopaste.cn/community/wechat-group-light.png" />
+        </picture>
+      </td>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/qq-group-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/qq-group-light.png" />
+          <img src="https://ecopaste.cn/community/qq-group-light.png" />
+        </picture>
+      </td>
+      <td>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://ecopaste.cn/community/telegram-chat-dark.png" />
+          <source media="(prefers-color-scheme: light)" srcset="https://ecopaste.cn/community/telegram-chat-light.png" />
+          <img src="https://ecopaste.cn/community/telegram-chat-light.png" />
+        </picture>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Contributors
 
@@ -123,6 +158,6 @@ If you find this project helpful, consider sponsoring us! Your support helps us 
 
 Please leave a message when sponsoring so we can include you in our [Sponsors List](https://ecopaste.cn/sponsor/list). Thank you for your support and encouragement!
 
-|               WeChat Pay               |              Alipay              |
-| :------------------------------------: | :------------------------------: |
-| ![wehcat-pay](./static/wechat-pay.png) | ![ali-pay](./static/ali-pay.png) |
+|                        WeChat Pay                         |                       Alipay                        |
+| :-------------------------------------------------------: | :-------------------------------------------------: |
+| ![wehcat-pay](https://ecopaste.cn/sponsor/wechat-pay.png) | ![ali-pay](https://ecopaste.cn/sponsor/ali-pay.png) |

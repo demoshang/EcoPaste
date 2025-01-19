@@ -48,7 +48,7 @@ const ClipboardPanel = () => {
 		// 开启剪贴板监听
 		startListen();
 
-		// 监听剪切板更新
+		// 监听剪贴板更新
 		onClipboardUpdate((payload) => {
 			if (clipboardStore.audio.copy) {
 				audioRef.current?.play();
@@ -61,6 +61,8 @@ const ClipboardPanel = () => {
 			const createTime = formatDate();
 
 			if (findItem) {
+				if (!clipboardStore.content.autoSort) return;
+
 				const { id } = findItem;
 
 				const index = findIndex(state.list, { id });
@@ -105,8 +107,8 @@ const ClipboardPanel = () => {
 
 	// 监听配置项变化
 	useTauriListen<Store>(LISTEN_KEY.STORE_CHANGED, ({ payload }) => {
-		merge(globalStore, payload.globalStore);
-		merge(clipboardStore, payload.clipboardStore);
+		deepAssign(globalStore, payload.globalStore);
+		deepAssign(clipboardStore, payload.clipboardStore);
 	});
 
 	// 切换剪贴板监听状态

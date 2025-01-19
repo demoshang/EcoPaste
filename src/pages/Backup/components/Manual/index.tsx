@@ -45,7 +45,9 @@ const Manual: FC<{ state: State }> = (props) => {
 
 			state.spinning = true;
 
-			await closeDatabase();
+			emit(LISTEN_KEY.CLOSE_DATABASE);
+
+			await wait();
 
 			await decompress(path, getSaveDataPath());
 
@@ -139,7 +141,7 @@ const Manual: FC<{ state: State }> = (props) => {
 								align="center"
 								justify="center"
 								gap="small"
-								className="b b-color-2 hover:b-primary h-102 flex-1 cursor-pointer rounded-8 bg-3 px-8 text-center transition hover:text-primary"
+								className="b b-color-2 hover:b-primary h-102 flex-1 cursor-pointer rounded-8 bg-color-3 px-8 text-center transition hover:text-primary"
 								onClick={event}
 							>
 								<Icon name={icon} size={26} />

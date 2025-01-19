@@ -105,7 +105,7 @@ const Header: FC<HeaderProps> = (props) => {
 	};
 
 	return (
-		<Flex justify="space-between" gap="small" className="color-2">
+		<Flex justify="space-between" gap="small" className="text-color-2">
 			<Scrollbar thumbSize={0}>
 				<Flex gap="small" className="flex-1 whitespace-nowrap text-12">
 					<span>{renderType()}</span>
@@ -125,7 +125,7 @@ const Header: FC<HeaderProps> = (props) => {
 				onDoubleClick={(event) => event.stopPropagation()}
 			>
 				{operationButtons.map((item) => {
-					const { key, icon, activeIcon } = item;
+					const { key, icon, activeIcon, title } = item;
 
 					const isFavorite = key === "star" && favorite;
 
@@ -134,6 +134,7 @@ const Header: FC<HeaderProps> = (props) => {
 							key={key}
 							hoverable
 							name={isFavorite ? activeIcon : icon}
+							title={t(title)}
 							className={clsx({ "text-gold!": isFavorite })}
 							onClick={(event) => handleClick(event, key)}
 						/>

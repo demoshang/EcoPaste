@@ -47,20 +47,39 @@
 				}
 			},
 			"content_settings": {
-				"title": "その他の設定",
+				"title": "コンテンツ設定",
+				"button": {
+					"custom_operation_button": "カスタム"
+				},
 				"label": {
 					"auto_paste": "自動ペースト",
 					"auto_paste_single": "シングルクリック",
 					"auto_paste_double": "ダブルクリック",
 					"image_ocr": "画像OCR",
 					"copy_as_plain": "プレーンテキストとしてコピー",
-					"paste_as_plain": "プレーンテキストとして貼り付ける"
+					"paste_as_plain": "プレーンテキストとして貼り付ける",
+					"operation_button": "操作ボタン",
+					"custom_operation_button_title": "カスタム操作ボタン",
+					"operation_button_option": {
+						"copy": "コピー",
+						"paste_plain": "プレーンテキストとして貼り付け",
+						"notes": "メモ",
+						"favorite": "お気に入り",
+						"delete": "削除"
+					},
+					"auto_favorite": "自動コレクション",
+					"delete_confirm": "削除確認",
+					"auto_sort": "自動整列"
 				},
 				"hints": {
 					"auto_paste": "左クリック時に、内容を素早く入力フィールドに貼り付けます",
 					"image_ocr": "注意：ご使用前に必ずダウンロードしてください。",
 					"copy_as_plain": "リッチテキストとHTML形式は、コピーしてもプレーンテキストの内容しか保持しない",
-					"paste_as_plain": "リッチテキストとHTMLの書式設定は、貼り付け時にプレーンテキストの内容だけを保持する"
+					"paste_as_plain": "リッチテキストとHTMLの書式設定は、貼り付け時にプレーンテキストの内容だけを保持する",
+					"operation_button": "クリップボード内容を操作するためのアイコンボタンをカスタマイズします",
+					"auto_favorite": "メモの追加・編集後に自動お気に入り登録",
+					"delete_confirm": "クリップボードの内容を削除する際に確認ダイアログを表示する",
+					"auto_sort": "既存の内容をコピーして最前面に配置する"
 				}
 			}
 		},
@@ -74,12 +93,9 @@
 				},
 				"label": {
 					"duration": "保持期間",
-					"duration_unit": {
-						"day": "日",
-						"week": "週",
-						"month": "月",
-						"year": "年"
-					},
+					"duration_unit": "日",
+					"max_count": "最大保持エントリー数",
+					"max_count_unit": "項",
 					"delete_title": "履歴を削除",
 					"time_range": "時間範囲",
 					"time_range_opt": {
@@ -93,7 +109,8 @@
 					"include_favorite": "お気に入りも削除"
 				},
 				"hints": {
-					"duration": "0 を入力すると永久保存され、削除時にお気に入りが保持されます",
+					"duration": "0を入力すると永久に保持して、収蔵されていない項目のみを統計して削除します",
+					"max_count": "0を入力すると永久に保持して、収蔵されていない項目のみを統計して削除します",
 					"delete_success": "削除が成功しました"
 				}
 			}
@@ -207,7 +224,8 @@
 					"version": "バージョン: ",
 					"software_info": "ソフトウェア情報",
 					"open_source_address": "オープンソースアドレス",
-					"community": "コミュニティの交流です"
+					"community": "コミュニティの交流です",
+					"sponsor": "スポンサー"
 				},
 				"button": {
 					"check_update": "アップデートの確認",
@@ -267,7 +285,8 @@
 			"n_chars": "{{0}} 文字"
 		},
 		"hints": {
-			"search_placeholder": "検索"
+			"search_placeholder": "検索",
+			"delete_modal_content": "本当に削除しますか？"
 		}
 	},
 	"component": {

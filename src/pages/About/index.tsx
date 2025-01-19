@@ -1,6 +1,7 @@
 import ProList from "@/components/ProList";
 import ProListItem from "@/components/ProListItem";
-import { WechatOutlined } from "@ant-design/icons";
+import { AlipayOutlined, QqOutlined, WechatOutlined } from "@ant-design/icons";
+import { getTauriVersion } from "@tauri-apps/api/app";
 import { emit } from "@tauri-apps/api/event";
 import { arch, version } from "@tauri-apps/plugin-os";
 import { Avatar, Button, Image, message } from "antd";
@@ -8,9 +9,14 @@ import { useSnapshot } from "valtio";
 import Thank from "./components/Thank";
 
 const About = () => {
-	const { env } = useSnapshot(globalStore);
-	const [visible, { toggle }] = useBoolean();
+	const { appearance, env } = useSnapshot(globalStore);
 	const { t } = useTranslation();
+	const [visible, { toggle }] = useBoolean();
+	const [imageSrc, setImageSrc] = useState("");
+
+	const theme = useCreation(() => {
+		return appearance.isDark ? "dark" : "light";
+	}, [appearance.isDark]);
 
 	const copyInfo = async () => {
 		const { appName, appVersion, platform } = env;
@@ -18,6 +24,7 @@ const About = () => {
 		const info = {
 			appName,
 			appVersion,
+			tauriVersion: await getTauriVersion(),
 			platform,
 			platformArch: await arch(),
 			platformVersion: await version(),
@@ -26,6 +33,11 @@ const About = () => {
 		await writeText(JSON.stringify(info, null, 2));
 
 		message.success(t("preference.about.about_software.hints.copy_success"));
+	};
+
+	const previewImage = (src: string) => {
+		setImageSrc(WEBSITE_LINK + src);
+		toggle();
 	};
 
 	return (
@@ -68,9 +80,35 @@ const About = () => {
 					title={t("preference.about.about_software.label.community")}
 				>
 					<Button
-						className="hover:b-#2aae67!"
-						icon={<WechatOutlined style={{ color: "#2aae67" }} />}
-						onClick={toggle}
+						className="hover:b-wechat!"
+						icon={<WechatOutlined className="text-wechat" />}
+						onClick={() => {
+							previewImage(`/community/wechat-group-${theme}.png`);
+						}}
+					/>
+					<Button
+						className="hover:b-qq!"
+						icon={<QqOutlined className="text-qq" />}
+						onClick={() => {
+							previewImage(`/community/qq-group-${theme}.png`);
+						}}
+					/>
+				</ProListItem>
+
+				<ProListItem title={t("preference.about.about_software.label.sponsor")}>
+					<Button
+						className="hover:b-wechat!"
+						icon={<WechatOutlined className="text-wechat" />}
+						onClick={() => {
+							previewImage("/sponsor/wechat-pay.png");
+						}}
+					/>
+					<Button
+						className="hover:b-alipay!"
+						icon={<AlipayOutlined className="text-alipay" />}
+						onClick={() => {
+							previewImage("/sponsor/ali-pay.png");
+						}}
 					/>
 				</ProListItem>
 
@@ -78,7 +116,7 @@ const About = () => {
 					hidden
 					preview={{
 						visible,
-						src: "https://picture-bed.ayangweb.cn/EcoPaste/wechat.png",
+						src: imageSrc,
 						onVisibleChange: toggle,
 					}}
 				/>

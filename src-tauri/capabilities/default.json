@@ -27,8 +27,6 @@
 		"fs:allow-write-text-file",
 		"fs:allow-copy-file",
 		"fs:allow-remove",
-		"fs:allow-create",
-		"fs:allow-write",
 		"fs:allow-exists",
 		"fs:write-all",
 		"fs:read-all",
